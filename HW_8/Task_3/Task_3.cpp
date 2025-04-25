@@ -22,30 +22,23 @@ int main() {
         return 0;
     }
 
-    // Размер кубика
-    const float cube_size = 5;
+    const float cube_side = 5;
 
-    // Количество кубиков по каждой оси
-    int count_x = static_cast<int>(x / cube_size);
-    int count_y = static_cast<int>(y / cube_size);
-    int count_z = static_cast<int>(z / cube_size);
+    // Расчет количества кубиков по каждой оси
+    int count_x = static_cast<int>(x / cube_side);
+    int count_y = static_cast<int>(y / cube_side);
+    int count_z = static_cast<int>(z / cube_side);
 
     // Общее количество кубиков
     int total_cubes = count_x * count_y * count_z;
 
     std::cout << "Из этого бруска можно изготовить " << total_cubes << " кубиков.\n";
 
-    // Проверка, можно ли сделать набор из минимум 8 кубиков
+    // Проверка, достаточен ли их объем для набора
     if (total_cubes >= 8) {
-        // Максимальное число кубиков для набора — это все кубики
+        // Максимальное число кубиков — все возможные
         int max_set_size = total_cubes;
-
-        // Но нам нужен набор, чтобы можно было сложить куб размером 5x5x5
-        // Количество кубиков в таком наборе — квадрат сторон: 2x2x2 = 8 кубиков
-        // Максимально возможное число — это все кубики, если они >=8
-        int max_possible_set = total_cubes; // так как все кубики - это и есть максимальный набор
-
-        std::cout << "Из них можно составить набор из " << max_possible_set << " кубиков.\n";
+        std::cout << "Из них можно составить набор из " << max_set_size << " кубиков.\n";
     }
     else {
         std::cout << "Недостаточно кубиков для набора.\n";
